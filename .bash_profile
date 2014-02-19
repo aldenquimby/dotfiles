@@ -15,8 +15,11 @@ HISTFILE=$HOME/.bash_history
 : ${HISTSIZE:=500}
 export HISTSIZE
 
-# Standard PATH
-#PATH=$HOME/bin:$PATH
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+
+# set up PATH
+PATH=$PATH:$HOME/.rvm/bin # Add RVM for Ruby scripting
 
 export PATH TERM
 
