@@ -1,0 +1,21 @@
+[user]
+	name = Alden Quimby
+	email = aldenquimby@gmail.com
+[credential]
+	helper = osxkeychain
+[push]
+	default = simple
+[color]
+	diff = auto
+[alias]
+	st = status
+	aa = add -A
+	cm = commit -m
+	co = checkout
+	cb = checkout -b
+	df = diff
+	dfc = diff --cached
+	grep = grep --color
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	lgday = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --since='1 Day Ago'
+	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
