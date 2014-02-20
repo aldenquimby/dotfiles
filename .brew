@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# install homebrew
+ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+brew update
+
+# homebrew taps
+brew tap phinze/cask
+brew tap jimbojsb/launchrocket
+
+# homebrew apps
+brew install brew-cask
+brew install maven
+brew install mysql
+brew install redis
+brew install nginx
+brew install neo4j
+
+# homebrew-cask always apps
+brew cask install google-chrome
+brew cask install firefox
+brew cask install sublime-text
+
+# homebrew-cask personal apps
+brew cask install skype
+brew cask install vlc
+brew cask install dropbox
+brew cask install skydrive
+brew cask install caffeine
+brew cask install the-unarchiver
+
+# homebrew-cask dev apps
+brew cask install virtualbox
+brew cask install vagrant
+brew cask install intellij-idea-ultimate
+brew cask install kdiff3
+brew cask install mysqlworkbench
+brew cask install launchrocket
+
+# launch some things on startup
+ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
+ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+ln -sfv /usr/local/opt/nginx/*.plist ~/Library/LaunchAgents
+neo4j install
