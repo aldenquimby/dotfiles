@@ -11,9 +11,10 @@ brew tap jimbojsb/launchrocket
 # homebrew apps
 brew install brew-cask
 brew install maven
-brew install mysql
-brew install redis
 brew install nginx
+brew install mysql
+brew install mongodb
+brew install redis
 brew install neo4j
 
 # homebrew-cask always apps
@@ -39,6 +40,7 @@ brew cask install launchrocket
 
 # launch some things on startup
 ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
+ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
 ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
 ln -sfv /usr/local/opt/nginx/*.plist ~/Library/LaunchAgents
 neo4j install
