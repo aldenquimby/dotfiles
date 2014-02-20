@@ -1,4 +1,3 @@
-
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 # set umask
@@ -24,7 +23,7 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM for Ruby scripting
 export PATH TERM
 
 # pull in __git_ps1
-source /usr/local/git/contrib/completion/git-prompt.sh
+source $(which git)/../../contrib/completion/git-prompt.sh
 
 # set up promt
 export PS1='$PWD\[\033[01;34m\]$(__git_ps1 " (%s)")\[\033[0m\] $ '
