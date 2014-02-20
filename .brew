@@ -20,13 +20,13 @@ brew install node
 brew install nginx
 brew install redis
 
-# homebrew-cask always apps
+# cask always apps
 brew cask install firefox
 brew cask install google-chrome
 brew cask install google-hangouts
 brew cask install sublime-text
 
-# homebrew-cask personal apps
+# cask personal apps
 brew cask install caffeine
 brew cask install dropbox
 brew cask install skydrive
@@ -34,7 +34,7 @@ brew cask install skype
 brew cask install the-unarchiver
 brew cask install vlc
 
-# homebrew-cask dev apps
+# cask dev apps
 brew cask install intellij-idea-ultimate
 brew cask install java
 brew cask install kdiff3
@@ -44,6 +44,7 @@ brew cask install vagrant
 brew cask install virtualbox
 
 # launch some things on startup
+mkdir -p ~/Library/LaunchAgents
 ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
 ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
 neo4j install
