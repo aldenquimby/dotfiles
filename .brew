@@ -44,6 +44,9 @@ brew cask install mysqlworkbench
 brew cask install vagrant
 brew cask install virtualbox
 
+# cask quick look plugins (https://github.com/sindresorhus/quick-look-plugins)
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql suspicious-package
+
 # launch some things on startup
 mkdir -p ~/Library/LaunchAgents
 ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
