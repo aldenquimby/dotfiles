@@ -43,6 +43,8 @@ brew cask install launchrocket
 brew cask install mysqlworkbench
 brew cask install vagrant
 brew cask install virtualbox
+brew cask install disk-inventory-x
+brew cask install hipchat
 
 # cask quick look plugins (https://github.com/sindresorhus/quick-look-plugins)
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql suspicious-package
