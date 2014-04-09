@@ -1,0 +1,85 @@
+# export JAVA_HOME=$(/usr/libexec/java_home)
+
+# set umask
+umask 0077
+
+EDITOR=VIM
+CDPATH=:$HOME
+ENV=$HOME/.bash_profile
+
+export EDITOR CDPATH ENV 
+
+# History file
+HISTFILE=$HOME/.bash_history
+: ${HISTSIZE:=500}
+export HISTSIZE
+
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+
+# set up PATH
+PATH=$PATH:$HOME/.rvm/bin # Add RVM for Ruby scripting
+
+export PATH TERM
+
+# add git completion
+source 'C:/Program Files (x86)/Git/etc/git-completion.bash'
+
+# pull in __git_ps1
+source 'C:/Program Files (x86)/Git/etc/git-prompt.sh'
+
+# set up promt "PATH_IN_GREEN (IF_GIT_BOLD_BLUE) PROMPT_BOLD_GREEN"
+export PS1='\[\e[0;32m\]$PWD\[\e[0m\]\[\e[01;34m\]$(__git_ps1 " (%s)")\[\e[0m\] \[\e[1;32m\]\$\[\e[m\] '
+
+# force mv, rm and cp to ask user before clobbering file
+alias mv="mv -i $*"
+alias rm="rm -i $*"
+alias cp="cp -i $*"
+alias ls="ls -hFG"         # add colors for filetype recognition
+alias ll="ls -al"          # show hidden files
+alias lx="ls -lXB"         # sort by extension
+alias lk="ls -lSr"         # sort by size, biggest last
+alias lc="ls -ltcr"        # sort by and show change time, recent last
+alias lt="ls -ltr"         # sort by date, recent last
+alias lm="ls -al |more"    # pipe through 'more'
+alias lr="ls -lR"          # recursive ls
+alias g="git"              # faster git!
+
+# 0   = default colour
+# 1   = bold
+# 4   = underlined
+# 5   = flashing text
+# 7   = reverse field
+# 31  = red
+# 32  = green
+# 33  = orange
+# 34  = blue
+# 35  = purple
+# 36  = cyan
+# 37  = grey
+# 40  = black background
+# 41  = red background
+# 42  = green background
+# 43  = orange background
+# 44  = blue background
+# 45  = purple background
+# 46  = cyan background
+# 47  = grey background
+# 90  = dark grey
+# 91  = light red
+# 92  = light green
+# 93  = yellow
+# 94  = light blue
+# 95  = light purple
+# 96  = turquoise
+# 100 = dark grey background
+# 101 = light red background
+# 102 = light green background
+# 103 = yellow background
+# 104 = light blue background
+# 105 = light purple background
+# 106 = turquoise background
+# add colors for git bash shell
+LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
+export LS_COLORS
+alias ls='ls -F --color --show-control-chars'

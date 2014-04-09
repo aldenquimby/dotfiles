@@ -3,16 +3,18 @@ dotfiles
 
 Collection of my dotfiles
 
-### Setting up a new machine
+### Setting up a new Mac
 
 Open terminal and run
 
 ```
-./installFiles.sh
-```
-
-Open a new terminal window and run
-
-```
 ./setupMac.sh
+```
+
+### Setting up a new PC
+
+Open a commond prompt and run
+
+```
+./setupWindows.cmd
 ```

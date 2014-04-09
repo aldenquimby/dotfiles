@@ -2,6 +2,26 @@
 " aldenquimby@gmail.com
 " vim settings 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""
+" FROM VUNDLE
+"""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/vundle'
+
+" Vundle plugins
+Plugin 'FuzzyFinder'
+" ...
+
+" after all plugins
+filetype plugin indent on     " required
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""
 " FROM COLUMBIA CS
