@@ -14,7 +14,9 @@ cinst GoogleChrome
 cinst intellijidea-ultimate
 cinst kdiff3
 cinst linqpad4
+cinst maven
 cinst MicrosoftSecurityEssentials
+cinst mongodb
 cinst nodejs.install
 cinst paint.net
 cinst PowerShell
@@ -31,9 +33,10 @@ cinst vlc
 cinst windirstat
 
 # TODO THINGS THAT FAILED
-# cinst mongodb
 # cinst mysql
 # cinst postgresql
+
+# ONLY WORKS AFTER VISUAL STUDIO INSTALLED
 # cinst resharper
 
 # TODO THINGS NOT FOUND
