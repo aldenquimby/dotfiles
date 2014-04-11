@@ -18,6 +18,7 @@ brew install mysql
 brew install neo4j
 brew install node
 brew install nginx
+brew install postgresql
 brew install redis
 
 # cask apps
