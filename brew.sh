@@ -20,31 +20,27 @@ brew install node
 brew install nginx
 brew install redis
 
-# cask always apps
+# cask apps
+brew cask install bettertouchtool
+brew cask install caffeine
+brew cask install disk-inventory-x
+brew cask install dropbox
 brew cask install firefox
 brew cask install google-chrome
 brew cask install google-hangouts
-brew cask install sublime-text
-
-# cask personal apps
-brew cask install caffeine
-brew cask install dropbox
-brew cask install skydrive
-brew cask install skype
-brew cask install the-unarchiver
-brew cask install vlc
-brew cask install rightzoom
-
-# cask dev apps
+brew cask install hipchat
 brew cask install intellij-idea-ultimate
 brew cask install java
+brew cask install jd-gui
 brew cask install kdiff3
 brew cask install launchrocket
-brew cask install mysqlworkbench
+brew cask install skydrive
+brew cask install skype
+brew cask install sublime-text
+brew cask install the-unarchiver
 brew cask install vagrant
 brew cask install virtualbox
-brew cask install disk-inventory-x
-brew cask install hipchat
+brew cask install vlc
 
 # cask quick look plugins (https://github.com/sindresorhus/quick-look-plugins)
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql suspicious-package
