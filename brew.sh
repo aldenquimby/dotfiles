@@ -41,6 +41,7 @@ brew cask install the-unarchiver
 brew cask install vagrant
 brew cask install virtualbox
 brew cask install vlc
+brew cask install weka
 
 # cask quick look plugins (https://github.com/sindresorhus/quick-look-plugins)
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql suspicious-package
