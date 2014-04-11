@@ -53,6 +53,7 @@ ln -sfv /usr/local/opt/mongodb/*.plist ~/Library/LaunchAgents
 ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents
 neo4j install
 ln -sfv /usr/local/opt/nginx/*.plist ~/Library/LaunchAgents
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
 ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
 
 # verify
