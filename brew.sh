@@ -21,6 +21,7 @@ brew install node
 brew install nginx
 brew install postgresql
 brew install redis
+brew install ruby
 
 # cask apps
 brew cask install bettertouchtool
