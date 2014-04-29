@@ -12,6 +12,7 @@ brew tap jimbojsb/launchrocket
 brew install brew-cask
 brew install git
 brew install heroku-toolbelt
+brew install hub
 brew install maven
 brew install mongodb
 brew install mysql
