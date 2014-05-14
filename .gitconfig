@@ -1,21 +1,31 @@
 [user]
 	name = Alden Quimby
 	email = aldenquimby@gmail.com
+
 [credential]
 	helper = osxkeychain
+
 [push]
 	default = simple
+
 [color]
 	diff = auto
+	ui = 1
+
 [alias]
-	st = status
 	aa = add -A
 	cm = commit -m
 	co = checkout
 	cb = checkout -b
 	df = diff
 	dfc = diff --cached
-	grep = grep --color
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	lgday = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --since='1 Day Ago'
+	lg = log --graph --pretty=format:'%C(yellow)%d%Creset %C(bold blue)%s%Creset %Cgreen(%cr) %Cred<%an>%Creset' --abbrev-commit --date=relative
+	lgtoday = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --since='1 Day Ago'
+	lsday = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --since='1 Day Ago'
+	pb = push --set-upstream origin
+	prm = pull-request -m
+	st = status
 	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+
+[merge]
+	tool = kdiff3
