@@ -1,40 +1,49 @@
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 # set umask
-umask 0077
+umask 0022
 
 EDITOR=VIM
 CDPATH=:$HOME
 ENV=$HOME/.bash_profile
 
-export EDITOR CDPATH ENV 
+export EDITOR CDPATH ENV TERM
 
 # History file
 HISTFILE=$HOME/.bash_history
 : ${HISTSIZE:=500}
 export HISTSIZE
 
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+################
+# PATH
+################
 
-# set up PATH
-PATH=$PATH:$HOME/.rvm/bin # Add RVM for Ruby scripting
+export PATH=$(brew --prefix ruby)/bin:$PATH
 
-export PATH TERM
+################
+# PROMPT
+################
 
 # pull in __git_ps1
-source $(which git)/../../contrib/completion/git-prompt.sh
+source /usr/local/git/contrib/completion/git-prompt.sh
 
-# set up promt
+# set up promt with git
 export PS1='$PWD\[\033[01;34m\]$(__git_ps1 " (%s)")\[\033[0m\] $ '
 
-# set up homebrew cask
-export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
+################
+# HOMEBREW
+################
 
-# force mv, rm and cp to ask user before clobbering file
-alias mv="mv -i $*"
-alias rm="rm -i $*"
-alias cp="cp -i $*"
+# https://github.com/phinze/homebrew-cask/blob/master/USAGE.md#options
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+################
+# CORE ALIASES
+################
+
+alias mv="mv -i $*"        # ask user before clobbering file
+alias rm="rm -i $*"        # ask user before clobbering file
+alias cp="cp -i $*"        # ask user before clobbering file
 alias ls="ls -hFG"         # add colors for filetype recognition
 alias ll="ls -al"          # show hidden files
 alias lx="ls -lXB"         # sort by extension
@@ -44,3 +53,20 @@ alias lt="ls -ltr"         # sort by date, recent last
 alias lm="ls -al |more"    # pipe through 'more'
 alias lr="ls -lR"          # recursive ls
 alias g="git"              # faster git!
+
+################
+# GITHUB
+################
+
+eval "$(hub alias -s)"
+
+################
+# MAVEN
+################
+
+# maven quiet => fix maven logging, no other way to set default level to warn
+mvnq()   { mvn "$@" > >(egrep -v "(^\[INFO\])") ; }
+mvnrun() { echo mvn $@ ; eval mvn $@ ; }
+mvnct()  { echo $1 | xargs | mvnrun clean test -DfailIfNoTests=false -Dtest=$1 ; }
+mvncit() { echo $1 | xargs | mvnrun clean verify -DfailIfNoTests=false -Dtest=$1 -Dit.test=$1 ; }
+mvndb()  { mvn initialize flyway:clean flyway:migrate ; }
