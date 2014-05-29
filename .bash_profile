@@ -1,3 +1,4 @@
+
 export JAVA_HOME=$(/usr/libexec/java_home)
 
 # set umask
@@ -18,6 +19,7 @@ export HISTSIZE
 # PATH
 ################
 
+export PATH=/usr/local/bin:$PATH
 export PATH=$(brew --prefix ruby)/bin:$PATH
 
 ################
@@ -69,4 +71,11 @@ mvnq()   { mvn "$@" > >(egrep -v "(^\[INFO\])") ; }
 mvnrun() { echo mvn $@ ; eval mvn $@ ; }
 mvnct()  { echo $1 | xargs | mvnrun clean test -DfailIfNoTests=false -Dtest=$1 ; }
 mvncit() { echo $1 | xargs | mvnrun clean verify -DfailIfNoTests=false -Dtest=$1 -Dit.test=$1 ; }
-mvndb()  { mvn initialize flyway:clean flyway:migrate ; }
+mvndb()  { cd migration ; mvn initialize flyway:clean flyway:migrate ; cd .. ; }
+
+################
+# MARK43
+################
+
+m43less() { node watch resources/less/mark43 resources/styles ; }
+
