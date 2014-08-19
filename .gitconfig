@@ -20,11 +20,12 @@
 	df = diff
 	dfc = diff --cached
 	lg = log --graph --pretty=format:'%C(yellow)%d%Creset %C(bold blue)%s%Creset %Cgreen(%cr) %Cred<%an>%Creset' --abbrev-commit --date=relative
-	lgtoday = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --since='1 Day Ago'
-	lsday = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --since='1 Day Ago'
+	mm = !git checkout master && git pull && git checkout - && git merge master
 	pb = push --set-upstream origin
-	prm = pull-request -m
+	prm = "!f() { hub pull-request -m \"$1\" | xargs open; }; f"
 	st = status
+	subup = !git pull --recurse-submodules && git submodule update
+	trim = "!f() { git fetch && git remote prune origin; git branch --merged | grep -v \"^\\*\\|master$\" | xargs -n 1 git branch -d; }; f"
 	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
 
 [merge]

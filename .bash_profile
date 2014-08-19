@@ -72,10 +72,3 @@ mvnrun() { echo mvn $@ ; eval mvn $@ ; }
 mvnct()  { echo $1 | xargs | mvnrun clean test -DfailIfNoTests=false -Dtest=$1 ; }
 mvncit() { echo $1 | xargs | mvnrun clean verify -DfailIfNoTests=false -Dtest=$1 -Dit.test=$1 ; }
 mvndb()  { cd migration ; mvn initialize flyway:clean flyway:migrate ; cd .. ; }
-
-################
-# MARK43
-################
-
-m43less() { node watch resources/less/mark43 resources/styles ; }
-
