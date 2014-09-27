@@ -24,10 +24,17 @@ export HISTSIZE
 
 # add git completion
 source 'C:/Program Files (x86)/Git/etc/git-completion.bash'
-
 # pull in __git_ps1
 source 'C:/Program Files (x86)/Git/etc/git-prompt.sh'
 
+# unstaged (*) and staged(+) changes
+export GIT_PS1_SHOWDIRTYSTATE="1"
+# whether there are stashed ($) changes
+export GIT_PS1_SHOWSTASHSTATE="1"
+# if there are untracked (%) files
+export GIT_PS1_SHOWUNTRACKEDFILES="1"
+# if we're ahead (>) or behind (<) or diverged (<>) relative to upstream
+export GIT_PS1_SHOWUPSTREAM="auto"
 # set up promt "PATH_IN_GREEN (IF_GIT_BOLD_BLUE) PROMPT_BOLD_GREEN"
 export PS1='\[\e[0;32m\]$PWD\[\e[0m\]\[\e[01;34m\]$(__git_ps1 " (%s)")\[\e[0m\] \[\e[1;32m\]\$\[\e[m\] '
 

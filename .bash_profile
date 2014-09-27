@@ -28,8 +28,15 @@ export PATH=$(brew --prefix ruby)/bin:$PATH
 
 # pull in __git_ps1
 source /usr/local/git/contrib/completion/git-prompt.sh
-
-# set up promt with git
+# unstaged (*) and staged(+) changes
+export GIT_PS1_SHOWDIRTYSTATE="1"
+# whether there are stashed ($) changes
+export GIT_PS1_SHOWSTASHSTATE="1"
+# if there are untracked (%) files
+export GIT_PS1_SHOWUNTRACKEDFILES="1"
+# if we're ahead (>) or behind (<) or diverged (<>) relative to upstream
+export GIT_PS1_SHOWUPSTREAM="auto"
+# add color prompt with git branch
 export PS1='$PWD\[\033[01;34m\]$(__git_ps1 " (%s)")\[\033[0m\] $ '
 
 ################
