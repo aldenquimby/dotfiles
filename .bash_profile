@@ -56,7 +56,6 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 # build prompt
 TIME_12H="\T "
 PATH_SHORT="\w "
-GIT_PROMPT="$(__git_ps1 "(%s)")"
 MONEY_PROMPT=' $ '
 export PS1=$COLOR_WHITE$TIME_12H$COLOR_YELLOW$PATH_SHORT'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
@@ -65,7 +64,7 @@ if [ $? -eq 0 ]; then \
     echo "'$COLOR_CYAN'"; \
   else \
     echo "'$COLOR_PURPLE'"; \
-  fi)'$GIT_PROMPT'"; \
+  fi)$(__git_ps1 "(%s)")"; \
 fi)'$COLOR_OFF$MONEY_PROMPT
 
 ################
