@@ -23,6 +23,20 @@ export PATH=/usr/local/bin:$PATH
 export PATH=$(brew --prefix ruby)/bin:$PATH
 
 ################
+# COLORS
+################
+
+COLOR_OFF="\[\033[0m\]"
+COLOR_BLACK="\[\033[0;90m\]"
+COLOR_RED="\[\033[0;91m\]"
+COLOR_GREEN="\[\033[0;92m\]"
+COLOR_YELLOW="\[\033[0;93m\]"
+COLOR_BLUE="\[\033[0;94m\]"
+COLOR_PURPLE="\[\033[0;95m\]"
+COLOR_CYAN="\[\033[0;96m\]"
+COLOR_WHITE="\[\033[0;37m\]"
+
+################
 # PROMPT
 ################
 
@@ -38,8 +52,21 @@ export GIT_PS1_SHOWSTASHSTATE="1"
 export GIT_PS1_SHOWUNTRACKEDFILES="1"
 # if we're ahead (>) or behind (<) or diverged (<>) relative to upstream
 export GIT_PS1_SHOWUPSTREAM="auto"
-# add color prompt with git branch
-export PS1='$PWD\[\033[01;34m\]$(__git_ps1 " (%s)")\[\033[0m\] $ '
+
+# build prompt
+TIME_12H="\T "
+PATH_SHORT="\w "
+GIT_PROMPT="$(__git_ps1 "(%s)")"
+MONEY_PROMPT=' $ '
+export PS1=$COLOR_WHITE$TIME_12H$COLOR_YELLOW$PATH_SHORT'$(git branch &>/dev/null;\
+if [ $? -eq 0 ]; then \
+  echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
+  if [ "$?" -eq "0" ]; then \
+    echo "'$COLOR_CYAN'"; \
+  else \
+    echo "'$COLOR_PURPLE'"; \
+  fi)'$GIT_PROMPT'"; \
+fi)'$COLOR_OFF$MONEY_PROMPT
 
 ################
 # HOMEBREW
