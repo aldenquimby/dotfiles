@@ -27,7 +27,9 @@ export PATH=$(brew --prefix ruby)/bin:$PATH
 ################
 
 # pull in __git_ps1
+source /usr/local/git/contrib/completion/git-completion.bash
 source /usr/local/git/contrib/completion/git-prompt.sh
+
 # unstaged (*) and staged(+) changes
 export GIT_PS1_SHOWDIRTYSTATE="1"
 # whether there are stashed ($) changes
