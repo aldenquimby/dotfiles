@@ -107,4 +107,7 @@ mvnq()   { mvn "$@" > >(egrep -v "(^\[INFO\])") ; }
 mvnrun() { echo mvn $@ ; eval mvn $@ ; }
 mvnct()  { echo $1 | xargs | mvnrun clean test -DfailIfNoTests=false -Dtest=$1 ; }
 mvncit() { echo $1 | xargs | mvnrun clean verify -DfailIfNoTests=false -Dtest=$1 -Dit.test=$1 ; }
-mvndb()  { cd migration ; mvn initialize flyway:clean flyway:migrate ; cd .. ; }
+mvndb()  { cd migration ; mvn initialize flyway:migrate ; cd .. ; }
+mvndbc() { cd migration ; mvn initialize flyway:clean flyway:migrate ; cd .. ; }
+mvndbr() { cd migration ; mvn initialize flyway:repair flyway:migrate ; cd .. ; }
+mvnpkg() { mvn clean package -T 2C -Dmaven.test.skip=true ; }
