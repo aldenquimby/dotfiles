@@ -92,12 +92,6 @@ alias lr="ls -lR"          # recursive ls
 alias g="git"              # faster git!
 
 ################
-# GITHUB
-################
-
-eval "$(hub alias -s)"
-
-################
 # MAVEN
 ################
 
