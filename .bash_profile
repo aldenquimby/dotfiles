@@ -44,6 +44,9 @@ COLOR_WHITE="\[\033[0;37m\]"
 source /usr/local/git/contrib/completion/git-completion.bash
 source /usr/local/git/contrib/completion/git-prompt.sh
 
+# git is aliased to g, need to alias autocompletion
+__git_complete g __git_main
+
 # unstaged (*) and staged(+) changes
 export GIT_PS1_SHOWDIRTYSTATE="1"
 # whether there are stashed ($) changes
