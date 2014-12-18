@@ -28,13 +28,17 @@ export PATH=$(brew --prefix ruby)/bin:$PATH
 
 COLOR_OFF="\[\033[0m\]"
 COLOR_BLACK="\[\033[0;90m\]"
-COLOR_RED="\[\033[0;91m\]"
+COLOR_RED="\[\033[0;31m\]"
 COLOR_GREEN="\[\033[0;92m\]"
 COLOR_YELLOW="\[\033[0;93m\]"
+COLOR_YELLOW_DIM="\[\033[0;33m\]"
 COLOR_BLUE="\[\033[0;94m\]"
-COLOR_PURPLE="\[\033[0;95m\]"
+COLOR_MAGENTA="\[\033[0;35m\]"
 COLOR_CYAN="\[\033[0;96m\]"
-COLOR_WHITE="\[\033[0;37m\]"
+COLOR_WHITE="\[\033[0;97m\]"
+COLOR_WHITE_DIM="\[\033[0;37m\]"
+
+colortest() { for code in $(seq -w 0 255); do for attr in 0 1; do printf "%s-%03s %bTest%b\n" "${attr}" "${code}" "\e[${attr};38;05;${code}m" "\e[m"; done; done | column -c $((COLUMNS*2)) ; }
 
 ################
 # PROMPT
@@ -60,13 +64,13 @@ export GIT_PS1_SHOWUPSTREAM="auto"
 TIME_12H="\T "
 PATH_SHORT="\w "
 MONEY_PROMPT=' $ '
-export PS1=$COLOR_WHITE$TIME_12H$COLOR_YELLOW$PATH_SHORT'$(git branch &>/dev/null;\
+export PS1=$COLOR_WHITE_DIM$TIME_12H$COLOR_YELLOW$PATH_SHORT'$(git branch &>/dev/null;\
 if [ $? -eq 0 ]; then \
   echo "$(echo `git status` | grep "nothing to commit" > /dev/null 2>&1; \
   if [ "$?" -eq "0" ]; then \
-    echo "'$COLOR_CYAN'"; \
+    echo "'$COLOR_BLUE'"; \
   else \
-    echo "'$COLOR_PURPLE'"; \
+    echo "'$COLOR_MAGENTA'"; \
   fi)$(__git_ps1 "(%s)")"; \
 fi)'$COLOR_OFF$MONEY_PROMPT
 
@@ -80,6 +84,12 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 ################
 # CORE ALIASES
 ################
+
+# Quicker navigation
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 
 alias mv="mv -i $*"        # ask user before clobbering file
 alias rm="rm -i $*"        # ask user before clobbering file
@@ -107,3 +117,14 @@ mvndb()  { cd migration ; mvn initialize flyway:migrate ; cd .. ; }
 mvndbc() { cd migration ; mvn initialize flyway:clean flyway:migrate ; cd .. ; }
 mvndbr() { cd migration ; mvn initialize flyway:repair flyway:migrate ; cd .. ; }
 mvnpkg() { mvn clean package -T 2C -Dmaven.test.skip=true ; }
+
+################
+# MYSQL
+################
+
+mysql_rename_schema() { 
+	mysql -s -N -e "CREATE DATABASE IF NOT EXISTS $2 DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_unicode_ci;";
+	for table in `mysql -s -N -e "show tables from $1"`; do
+		mysql -s -N -e "rename table $1.$table to $2.$table;";
+	done; 
+}
