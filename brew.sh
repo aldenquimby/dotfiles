@@ -17,8 +17,8 @@ brew install gnupg
 brew install heroku-toolbelt
 brew install hub
 brew install maven
-brew install node
 brew install nginx
+brew install node
 brew install ruby
 brew install scala
 
