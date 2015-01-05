@@ -41,7 +41,7 @@ brew cask install firefox
 brew cask install google-chrome
 brew cask install google-hangouts
 brew cask install hipchat
-brew cask install intellij-idea-ultimate
+brew cask install intellij-idea
 brew cask install java
 brew cask install jd-gui
 brew cask install kdiff3
