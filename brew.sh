@@ -32,7 +32,6 @@ brew install redis
 
 # cask apps
 brew cask install apache-directory-studio
-brew cask install atom
 brew cask install bettertouchtool
 brew cask install caffeine
 brew cask install disk-inventory-x
