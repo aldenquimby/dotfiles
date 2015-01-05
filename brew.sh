@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install homebrew
-ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 
 # homebrew taps
@@ -12,21 +12,23 @@ brew tap homebrew/versions
 # homebrew apps
 brew install ant
 brew install brew-cask
-brew install elasticsearch
 brew install git
 brew install gnupg
 brew install heroku-toolbelt
 brew install hub
-brew install mariadb
 brew install maven
-brew install mongodb
-brew install neo4j
 brew install node
 brew install nginx
-brew install postgresql
-brew install redis
 brew install ruby
 brew install scala
+
+# homebrew databases
+brew install elasticsearch
+brew install mariadb
+brew install mongodb
+brew install neo4j
+brew install postgresql
+brew install redis
 
 # cask apps
 brew cask install apache-directory-studio
@@ -50,7 +52,6 @@ brew cask install the-unarchiver
 brew cask install vagrant
 brew cask install virtualbox
 brew cask install vlc
-brew cask install weka
 
 # cask quick look plugins (https://github.com/sindresorhus/quick-look-plugins)
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql suspicious-package
