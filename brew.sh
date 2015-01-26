@@ -71,3 +71,6 @@ brew doctor
 # HTML5
 # LESS
 # Pretty JSON
+
+# subl /Applications/IntelliJ\ IDEA\ 14.app/Contents/Info.plist 
+# change JVMVersion to 1.8*
