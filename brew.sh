@@ -64,3 +64,10 @@ ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
 
 # verify
 brew doctor
+
+# sublime packages
+# SideBarEnhancements
+# SublimeCodeIntel
+# HTML5
+# LESS
+# Pretty JSON
