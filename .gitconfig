@@ -35,7 +35,7 @@
 	dfc = diff --cached
 	lg = log --graph --pretty=format:'%C(yellow)%d%Creset %C(bold blue)%s%Creset %Cgreen(%cr) %Cred<%an>%Creset' --abbrev-commit --date=relative
 	mm = !git fetch origin master && git merge origin/master
-	pb = push --set-upstream origin
+	pb = "!f() { git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`; }; f"
 	prm = "!f() { hub pull-request -m \"$1\n$HUB_PR_BODY_TEMPLATE\" | xargs open; }; f"
 	st = status -sb
 	subup = !git pull --recurse-submodules && git submodule update
