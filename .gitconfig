@@ -27,7 +27,7 @@
 
 [alias]
 	aa = add -A
-	acp = "!f() { git add -A; git commit -m \"$1\"; git push; }; f"
+	acp = "!f() { git add -A && git commit -m \"$1\" && git push; }; f"
 	bra = branch -a
 	cm = commit -m
 	co = checkout
