@@ -45,8 +45,7 @@ colortest() { for code in $(seq -w 0 255); do for attr in 0 1; do printf "%s-%03
 ################
 
 # pull in __git_ps1
-source /usr/local/git/contrib/completion/git-completion.bash
-source /usr/local/git/contrib/completion/git-prompt.sh
+for f in /usr/local/etc/bash_completion.d/* ; do source $f; done
 
 # git is aliased to g, need to alias autocompletion
 __git_complete g __git_main
@@ -116,7 +115,7 @@ mvncit() { echo $1 | xargs | mvnrun clean verify -DfailIfNoTests=false -Dtest=$1
 mvndb()  { cd migration ; mvn initialize flyway:migrate ; cd .. ; }
 mvndbc() { cd migration ; mvn initialize flyway:clean flyway:migrate ; cd .. ; }
 mvndbr() { cd migration ; mvn initialize flyway:repair flyway:migrate ; cd .. ; }
-mvnpkg() { mvn clean package -T 2C -Dmaven.test.skip=true ; }
+mvnpkg() { mvn package -T 2C -Dmaven.test.skip=true -DskipTests ; }
 
 ################
 # MYSQL
