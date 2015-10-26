@@ -39,6 +39,7 @@
 	mm = !git fetch origin master && git merge origin/master
 	pb = "!f() { git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`; }; f"
 	prm = "!f() { hub pull-request -m \"$1\n$HUB_PR_BODY_TEMPLATE\" | xargs open; }; f"
+	rbc = rebase --continue
 	rbm = !git fetch origin master && git rebase -i origin/master
 	st = status -sb
 	subup = !git pull --recurse-submodules && git submodule update
