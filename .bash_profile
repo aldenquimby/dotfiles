@@ -104,26 +104,19 @@ alias lr="ls -lR"          # recursive ls
 alias g="git"              # faster git!
 
 ################
-# MAVEN
-################
-
-# maven quiet => fix maven logging, no other way to set default level to warn
-mvnq()   { mvn "$@" > >(egrep -v "(^\[INFO\])") ; }
-mvnrun() { echo mvn $@ ; eval mvn $@ ; }
-mvnct()  { echo $1 | xargs | mvnrun clean test -DfailIfNoTests=false -Dtest=$1 ; }
-mvncit() { echo $1 | xargs | mvnrun clean verify -DfailIfNoTests=false -Dtest=$1 -Dit.test=$1 ; }
-mvndb()  { cd migration ; mvn initialize flyway:migrate ; cd .. ; }
-mvndbc() { cd migration ; mvn initialize flyway:clean flyway:migrate ; cd .. ; }
-mvndbr() { cd migration ; mvn initialize flyway:repair flyway:migrate ; cd .. ; }
-mvnpkg() { mvn package -T 2C -Dmaven.test.skip=true -DskipTests ; }
-
-################
 # MYSQL
 ################
 
-mysql_rename_schema() { 
+mysql_rename_schema() {
 	mysql -s -N -e "CREATE DATABASE IF NOT EXISTS $2 DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_unicode_ci;";
 	for table in `mysql -s -N -e "show tables from $1"`; do
 		mysql -s -N -e "rename table $1.$table to $2.$table;";
-	done; 
+	done;
 }
+
+################
+# ADDITIONAL FILES
+################
+
+# now pull in additional files
+for f in ~/.profile.d/* ; do source $f; done
