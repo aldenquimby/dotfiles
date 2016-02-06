@@ -74,13 +74,6 @@ if [ $? -eq 0 ]; then \
 fi)'$COLOR_OFF$MONEY_PROMPT
 
 ################
-# HOMEBREW
-################
-
-# https://github.com/phinze/homebrew-cask/blob/master/USAGE.md#options
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
-################
 # CORE ALIASES
 ################
 
@@ -102,17 +95,6 @@ alias lt="ls -ltr"         # sort by date, recent last
 alias lm="ls -al |more"    # pipe through 'more'
 alias lr="ls -lR"          # recursive ls
 alias g="git"              # faster git!
-
-################
-# MYSQL
-################
-
-mysql_rename_schema() {
-	mysql -s -N -e "CREATE DATABASE IF NOT EXISTS $2 DEFAULT CHARACTER SET utf8mb4 DEFAULT COLLATE utf8mb4_unicode_ci;";
-	for table in `mysql -s -N -e "show tables from $1"`; do
-		mysql -s -N -e "rename table $1.$table to $2.$table;";
-	done;
-}
 
 ################
 # ADDITIONAL FILES

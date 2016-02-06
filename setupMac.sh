@@ -5,6 +5,9 @@ cp .vimrc ~/.vimrc
 cp .gitconfig ~/.gitconfig
 cp .bash_profile ~/.bash_profile
 
+# make nvm working directory
+mkdir ~/.nvm
+
 # install packages
 sh ./brew.sh
 

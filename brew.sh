@@ -17,12 +17,10 @@ brew install gnupg
 brew install heroku-toolbelt
 brew install hub
 brew install nginx
-brew install node
+brew install nvm
 brew install sshrc
 # some packages may be installed automatically:
-#   icu4c   - for node
-#   openssl - for node, nginx
-#   pcre    - for git, node
+#   "brew uses --installed X" to see what depends on X
 
 # DBs and other services will be on a VM, no need to add them
 # brew install elasticsearch mariadb mongodb neo4j postgresql redis
