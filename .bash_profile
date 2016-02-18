@@ -21,6 +21,7 @@ export HISTSIZE
 
 export PATH=/usr/local/bin:$PATH
 export PATH=$(brew --prefix ruby)/bin:$PATH
+export PATH=./node_modules/.bin:$PATH
 
 ################
 # COLORS
