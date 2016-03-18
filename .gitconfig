@@ -38,10 +38,11 @@
 	df = diff
 	dif = diff
 	dfc = diff --cached
-	fixup = "!f() { git add -A && git commit --fixup HEAD && git rebase --interactive --autosquash HEAD~2; }; f"
+	fu = "!f() { git add -A && git commit --fixup HEAD && git rebase --interactive --autosquash HEAD~2; }; f"
 	lg = log --graph --pretty=format:'%C(yellow)%d%Creset %C(bold blue)%s%Creset %Cgreen(%cr) %Cred<%an>%Creset' --abbrev-commit --date=relative
 	mm = !git fetch origin master && git merge origin/master
 	pb = "!f() { git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`; }; f"
+	pf = push --force
 	prm = "!f() { local PR_TEMPLATE=$(cat "`git rev-parse --show-toplevel`/.github/PULL_REQUEST_TEMPLATE.md"); hub pull-request -m \"$1\n$PR_TEMPLATE\" | xargs open; }; f"
 	rbc = rebase --continue
 	rbm = !git fetch origin master && git rebase -i origin/master
