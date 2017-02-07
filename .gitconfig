@@ -28,6 +28,7 @@
 [alias]
 	aa = add -A
 	acp = "!f() { git add -A && git commit -m \"$1\" && git push; }; f"
+	acprm = "!f() { git acp \"$1\"; git pb && git prm \"$1\"; }; f"
 	bak = "!f() { git cb `echo "$(git rev-parse --abbrev-ref HEAD)-$(date +%s)"` && git pb && git co -; }; f"
 	bra = branch -a
 	cm = commit -m
@@ -50,7 +51,7 @@
 	subup = !git pull --recurse-submodules && git submodule update
 	tagd = "!f() { git tag -d \"$1\"; git push origin \":refs/tags/$1\"; }; f"
 	tagsync = "!f() { git tag -l | xargs git tag -d; git fetch; }; f"
-	trim = "!f() { git fetch && git remote prune origin; git branch --merged | grep -v \"^\\*\\|master$\" | xargs -n 1 git branch -d; }; f"
+	trim = "!f() { git fetch -p; for branch in `git branch -vv | grep ': gone]' | grep '^[^*]' | awk '{print $1}'`; do git branch -D $branch; done; git prune; git gc --aggressive; }; f"
 
 # Here's how you can delete all tags matching aq
 #
@@ -64,3 +65,5 @@
 [merge "daff-csv"]
 	name = daff tabular csv merge
 	driver = daff merge --output %A %O %A %B
+[diff "ansible-vault"]
+	textconv = ansible-vault view
