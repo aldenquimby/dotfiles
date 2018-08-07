@@ -47,4 +47,3 @@ brew_cask_outdated() {
 	  esac
 	done
 }
-

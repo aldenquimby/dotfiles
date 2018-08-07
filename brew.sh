@@ -1,68 +1,59 @@
 #!/bin/bash
 
 # install homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 
-# homebrew taps
-brew tap caskroom/cask
-brew tap caskroom/versions
-brew tap homebrew/services
-brew tap homebrew/versions
-
 # homebrew apps
-brew install brew-cask
+brew install ansible
+brew install bash
+brew install gdal --enable-unsupported --complete
 brew install git
 brew install gnupg
-brew install heroku-toolbelt
 brew install hub
-brew install nginx
+brew install htop
+brew install jq
+brew install ncdu
 brew install nvm
+brew install pre-commit
+brew install python
 brew install sshrc
+brew install the_silver_searcher
+brew install wget
+
 # some packages may be installed automatically:
 #   "brew uses --installed X" to see what depends on X
-
-# DBs and other services will be on a VM, no need to add them
-# brew install elasticsearch mariadb mongodb neo4j postgresql redis
 
 # cask apps that need to happen early
 brew cask install java
 
 # cask apps
 brew cask install bettertouchtool
-brew cask install caffeine
+brew cask install betterzipql
 brew cask install disk-inventory-x
-brew cask install dropbox
 brew cask install firefox
 brew cask install google-chrome
-brew cask install google-hangouts
 brew cask install intellij-idea
 brew cask install jd-gui
 brew cask install kdiff3
+brew cask install licecap
+brew cask install qlcolorcode
+brew cask install qlmarkdown
+brew cask install qlprettypatch
+brew cask install qlstephen
+brew cask install quicklook-csv
+brew cask install quicklook-json
 brew cask install rdm
-brew cask install skype
 brew cask install slack
-brew cask install sublime-text3
+brew cask install sublime-text
+brew cask install suspicious-package
 brew cask install vagrant
 brew cask install virtualbox
-brew cask install vlc
+brew cask install visual-studio-code
 
 # homebrew apps that depend on cask apps
 brew install maven
 brew install scala
 
-# cask quick look plugins (https://github.com/sindresorhus/quick-look-plugins)
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql suspicious-package
-
-# launch some things on startup
-sudo brew services start nginx
-
 # verify
 brew doctor
-
-# sublime packages
-# SideBarEnhancements
-# SublimeCodeIntel
-# HTML5
-# LESS
-# Pretty JSON
