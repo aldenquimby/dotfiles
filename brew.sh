@@ -5,17 +5,16 @@
 brew update
 
 # homebrew apps
-brew install ansible
+# brew install ansible
 brew install bash
 brew install git
-brew install gnupg
+# brew install gnupg
 brew install hub
 brew install htop
 brew install jq
 brew install ncdu
 brew install nvm
-brew install pre-commit
-brew install sshrc
+# brew install pre-commit
 brew install the_silver_searcher
 brew install wget
 
@@ -29,10 +28,10 @@ brew cask install betterzipql
 brew cask install disk-inventory-x
 brew cask install firefox
 brew cask install intellij-idea
-brew cask install java
+# brew cask install java
 brew cask install kdiff3
 brew cask install licecap
-brew cask install postman
+# brew cask install postman
 brew cask install qlcolorcode
 brew cask install qlmarkdown
 brew cask install qlprettypatch
