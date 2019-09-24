@@ -12,15 +12,15 @@ export EDITOR CDPATH ENV TERM
 
 # History file
 HISTFILE=$HOME/.bash_history
-: ${HISTSIZE:=500}
+: ${HISTSIZE:=1000}
 export HISTSIZE
+export HISTTIMEFORMAT="%d/%m/%y %T "
 
 ################
 # PATH
 ################
 
 export PATH=/usr/local/bin:$PATH
-export PATH=$(brew --prefix ruby)/bin:$PATH
 export PATH=./node_modules/.bin:$PATH
 
 ################
@@ -38,8 +38,6 @@ COLOR_MAGENTA="\[\033[0;35m\]"
 COLOR_CYAN="\[\033[0;96m\]"
 COLOR_WHITE="\[\033[0;97m\]"
 COLOR_WHITE_DIM="\[\033[0;37m\]"
-
-colortest() { for code in $(seq -w 0 255); do for attr in 0 1; do printf "%s-%03s %bTest%b\n" "${attr}" "${code}" "\e[${attr};38;05;${code}m" "\e[m"; done; done | column -c $((COLUMNS*2)) ; }
 
 ################
 # PROMPT
@@ -59,6 +57,8 @@ export GIT_PS1_SHOWSTASHSTATE="1"
 export GIT_PS1_SHOWUNTRACKEDFILES="1"
 # if we're ahead (>) or behind (<) or diverged (<>) relative to upstream
 export GIT_PS1_SHOWUPSTREAM="auto"
+# color hints only work for PROMPT_COMMAND, not PS1, still trying to figure that out
+export GIT_PS1_SHOWCOLORHINTS="true"
 
 # build prompt
 TIME_12H="\T "
@@ -102,4 +102,4 @@ alias g="git"              # faster git!
 ################
 
 # now pull in additional files
-for f in ~/.profile.d/* ; do source $f; done
+for f in ~/.bash.d/* ; do source $f; done
