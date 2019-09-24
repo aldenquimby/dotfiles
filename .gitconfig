@@ -44,7 +44,7 @@
 	mm = !git fetch origin master && git merge origin/master
 	pb = "!f() { git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`; }; f"
 	pf = push --force
-	prm = "!f() { local PR_TEMPLATE=$(cat "`git rev-parse --show-toplevel`/.github/PULL_REQUEST_TEMPLATE.md"); hub pull-request -m \"$1\n$PR_TEMPLATE\" | xargs open; }; f"
+	prm = "!f() { local PR_TEMPLATE=$(cat "`git rev-parse --show-toplevel`/.github/PULL_REQUEST_TEMPLATE.md"); hub pull-request -m \"$1\n\n$PR_TEMPLATE\" | xargs open; }; f"
 	rbc = rebase --continue
 	rbm = !git fetch origin master && git rebase -i origin/master
 	st = status -sb
@@ -67,3 +67,5 @@
 	driver = daff merge --output %A %O %A %B
 [diff "ansible-vault"]
 	textconv = ansible-vault view
+[hub]
+	protocol = https
