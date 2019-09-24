@@ -32,6 +32,7 @@ brew cask install intellij-idea
 brew cask install java
 brew cask install kdiff3
 brew cask install licecap
+brew cask install postman
 brew cask install qlcolorcode
 brew cask install qlmarkdown
 brew cask install qlprettypatch
@@ -45,3 +46,5 @@ brew cask install visual-studio-code
 
 # verify
 brew doctor
+
+# apps to install manually: Docker, Microsoft Office, Xcode
