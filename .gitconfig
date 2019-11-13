@@ -29,8 +29,8 @@
 	aa = add -A
 	acp = "!f() { git add -A && git commit -m \"$1\" && git push; }; f"
 	acprm = "!f() { git acp \"$1\"; git pb && git prm \"$1\"; }; f"
+	apcrm = acprm
 	bak = "!f() { git cb `echo "$(git rev-parse --abbrev-ref HEAD)-$(date +%s)"` && git pb && git co -; }; f"
-	bra = branch -a
 	cm = commit -m
 	co = checkout
 	cb = checkout -b
@@ -44,11 +44,12 @@
 	mm = !git fetch origin master && git merge origin/master
 	pb = "!f() { git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`; }; f"
 	pf = push --force
-	prm = "!f() { local PR_TEMPLATE=$(cat "`git rev-parse --show-toplevel`/.github/PULL_REQUEST_TEMPLATE.md"); hub pull-request -m \"$1\n\n$PR_TEMPLATE\" | xargs open; }; f"
+	prl = "!f() { hub pr list --format ' %pC%<(6)%i%Cwhite%<(11)%au%Creset %t% l%n'; }; f"
+	prm = "!f() { hub pull-request --browse; }; f"
 	rbc = rebase --continue
+	rbd = !git fetch origin develop && git rebase -i origin/develop
 	rbm = !git fetch origin master && git rebase -i origin/master
 	st = status -sb
-	subup = !git pull --recurse-submodules && git submodule update
 	tagd = "!f() { git tag -d \"$1\"; git push origin \":refs/tags/$1\"; }; f"
 	tagsync = "!f() { git tag -l | xargs git tag -d; git fetch; }; f"
 	trim = "!f() { git fetch -p; for branch in `git branch -vv | grep ': gone]' | grep '^[^*]' | awk '{print $1}'`; do git branch -D $branch; done; git prune; git gc --aggressive; }; f"
