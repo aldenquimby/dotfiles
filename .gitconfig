@@ -29,6 +29,7 @@
 	aa = add -A
 	acp = "!f() { git add -A && git commit -m \"$1\" && git push; }; f"
 	acprm = "!f() { git acp \"$1\"; git pb && git prm \"$1\"; }; f"
+	acrpm = acprm
 	apcrm = acprm
 	bak = "!f() { git cb `echo "$(git rev-parse --abbrev-ref HEAD)-$(date +%s)"` && git pb && git co -; }; f"
 	cm = commit -m
@@ -44,11 +45,13 @@
 	mm = !git fetch origin master && git merge origin/master
 	pb = "!f() { git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`; }; f"
 	pf = push --force
+	prco = "!f() { hub pr checkout $1; }; f"
 	prl = "!f() { hub pr list --format ' %pC%<(6)%i%Cwhite%<(11)%au%Creset %t% l%n'; }; f"
 	prm = "!f() { hub pull-request --browse; }; f"
 	rbc = rebase --continue
 	rbd = !git fetch origin develop && git rebase -i origin/develop
 	rbm = !git fetch origin master && git rebase -i origin/master
+	rpm = prm
 	st = status -sb
 	tagd = "!f() { git tag -d \"$1\"; git push origin \":refs/tags/$1\"; }; f"
 	tagsync = "!f() { git tag -l | xargs git tag -d; git fetch; }; f"
