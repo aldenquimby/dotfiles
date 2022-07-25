@@ -5,10 +5,10 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 umask 0022
 
 EDITOR=VIM
+# export EDITOR='subl -w'
 CDPATH=:$HOME
-ENV=$HOME/.bash_profile
 
-export EDITOR CDPATH ENV TERM
+export EDITOR CDPATH TERM
 
 # History file
 HISTFILE=$HOME/.bash_history
@@ -96,6 +96,13 @@ alias lt="ls -ltr"         # sort by date, recent last
 alias lm="ls -al |more"    # pipe through 'more'
 alias lr="ls -lR"          # recursive ls
 alias g="git"              # faster git!
+
+################
+# OSX CATALINA
+################
+
+# Hide "The default interactive shell is now zsh."
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 ################
 # ADDITIONAL FILES
