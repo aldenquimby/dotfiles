@@ -2,8 +2,9 @@
 	name = Alden Quimby
 	email = aldenquimby@gmail.com
 
-[credential]
-	helper = osxkeychain
+# new Github CLI instead
+#[credential]
+#	helper = osxkeychain
 
 [push]
 	default = simple
@@ -71,5 +72,7 @@
 	driver = daff merge --output %A %O %A %B
 [diff "ansible-vault"]
 	textconv = ansible-vault view
-[hub]
-	protocol = https
+
+# new Github CLI instead?
+#[hub]
+#	protocol = https
