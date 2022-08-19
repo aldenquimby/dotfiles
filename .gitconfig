@@ -2,10 +2,6 @@
 	name = Alden Quimby
 	email = aldenquimby@gmail.com
 
-# new Github CLI instead
-#[credential]
-#	helper = osxkeychain
-
 [push]
 	default = simple
 
@@ -46,9 +42,9 @@
 	mm = !git fetch origin master && git merge origin/master
 	pb = "!f() { git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`; }; f"
 	pf = push --force
-	prco = "!f() { hub pr checkout $1; }; f"
-	prl = "!f() { hub pr list --format ' %pC%<(6)%i%Cwhite%<(11)%au%Creset %t% l%n'; }; f"
-	prm = "!f() { hub pull-request --browse; }; f"
+	prco = "!f() { gh pr checkout $1; }; f"
+	prl = "!f() { gh pr list; }; f"
+	prm = "!f() { gh pr create --fill --web; }; f"
 	rbc = rebase --continue
 	rbd = !git fetch origin develop && git rebase -i origin/develop
 	rbm = !git fetch origin master && git rebase -i origin/master
@@ -72,7 +68,3 @@
 	driver = daff merge --output %A %O %A %B
 [diff "ansible-vault"]
 	textconv = ansible-vault view
-
-# new Github CLI instead?
-#[hub]
-#	protocol = https
