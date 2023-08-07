@@ -39,15 +39,13 @@
 	dfc = diff --cached
 	fu = "!f() { git add -A && git commit --fixup HEAD && git rebase --interactive --autosquash HEAD~2; }; f"
 	lg = log --graph --pretty=format:'%C(yellow)%d%Creset %C(bold blue)%s%Creset %Cgreen(%cr) %Cred<%an>%Creset' --abbrev-commit --date=relative
-	mm = !git fetch origin master && git merge origin/master
 	pb = "!f() { git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`; }; f"
 	pf = push --force
 	prco = "!f() { gh pr checkout $1; }; f"
 	prl = "!f() { gh pr list; }; f"
 	prm = "!f() { gh pr create --fill --web; }; f"
 	rbc = rebase --continue
-	rbd = !git fetch origin develop && git rebase -i origin/develop
-	rbm = !git fetch origin master && git rebase -i origin/master
+	rbm = !git fetch origin main && git rebase -i origin/main
 	rpm = prm
 	st = status -sb
 	tagd = "!f() { git tag -d \"$1\"; git push origin \":refs/tags/$1\"; }; f"
@@ -68,3 +66,5 @@
 	driver = daff merge --output %A %O %A %B
 [diff "ansible-vault"]
 	textconv = ansible-vault view
+[init]
+	defaultBranch = main
